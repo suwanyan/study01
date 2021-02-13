@@ -1,0 +1,44 @@
+server:
+  port: 8888  #端口
+spring:
+  application:
+    name: OneHundredMillion  #项目名称
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,file:${file.dir}
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    name: one_hundred_million
+    url: jdbc:mysql://192.168.50.46:3306/one_hundred_million?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    druid:
+      initial-size: 2 #初始化连接
+      max-active: 20 #最大连接
+      min-idle: 5 #最小空闲连接
+      max-wait: 100 #超时等待时间，以为毫秒为单位，1000等于1秒
+      log-abandoned: true #连接被泄露时是否打印
+      pool-prepared-statements: true
+  jackson:
+    #日期格式化
+    date-format:  yyyy-MM-dd HH:mm:ss
+    time-zone:  GMT+8
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.one_hundred_million.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+file:
+  fileDir: D:\各项目代码等整理\真实性检验\文档类
+swagger:
+  title: 赚一个亿
+  version: 1.0.0
+  description: 赚一个亿
+  contact:
+    name: case
+  exclude-path: /error,/actuator/**
+  authorization:
+    name: 认证头
+    key-name: Authorization

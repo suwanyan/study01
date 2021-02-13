@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="socket" />
+        <module name="netty-websocket" />
+        <module name="shiro" />
+        <module name="util" />
+        <module name="architect" />
+        <module name="ftp" />
+        <module name="ticket" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="architect" options="-parameters" />
+      <module name="ftp" options="-parameters" />
+      <module name="netty-websocket" options="-parameters" />
+      <module name="shiro" options="-parameters" />
+      <module name="socket" options="-parameters" />
+      <module name="ticket" options="-parameters" />
+      <module name="util" options="-parameters" />
+    </option>
+  </component>
+</project>

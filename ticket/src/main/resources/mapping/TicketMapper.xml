@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.one_hundred_million.mapper.TicketMapper">
+
+    <resultMap id="ticketmap" type="com.one_hundred_million.model.Ticket">
+        <id column="id" property="id" jdbcType="Integer"/>
+        <result column="user_id" property="userId" jdbcType="Integer"/>
+        <result column="id_card" property="idCard" jdbcType="VARCHAR"/>
+        <result column="ticket_time" property="ticketTime" jdbcType="DATE"/>
+        <result column="start_addr" property="startAddr" jdbcType="VARCHAR"/>
+        <result column="end_addr" property="endAddr" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectTicketByID" resultMap="ticketmap">
+		select * from ticket where id = #{id}
+	</select>
+
+</mapper>

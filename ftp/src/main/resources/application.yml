@@ -1,0 +1,36 @@
+server:
+  port: 8000 #端口
+ftp:
+  # ftp地址、端口
+  addr: 36.112.11.166
+  name: ftp0001
+  password: geovis@123
+  options: "password=${ftp.password}\
+				  &noop=true\
+				  &recursive=true&reconnectDelay=1000&binary=true&passiveMode=true&delay=500\
+    	          &idempotent=true&ftpClient.controlEncoding=UTF-8&fastExistsCheck=true&resumeDownload=true\
+    	          &scheduler=quartz2\
+				  &scheduler.cron=0 0/1 * * * ? *\
+				  &readLock=changed\
+				  &readLockCheckInterval=60000\
+				  &readLockMinAge=600000\
+				  &readLockTimeout=600000\
+				  &ftpClientConfig.serverTimeZoneId='Asia/Shanghai'\
+				  &ftpClient.dataTimeout=30000\
+				  &ftpClient.controlKeepAliveReplyTimeout=5000\
+				  &ftpClient.controlKeepAliveTimeout=15\
+    	          &localWorkDirectory=${ftp.localWorkDirectory}&include=.*csv&filter=#downloadFileFilter"
+  file-options: "allowNullBody=true&fileExist=Ignore"
+  url: ftp://${ftp.name}@${ftp.addr}/
+  # 本地下载目录
+  server: D:/swy/yx/四川火警应急/ftp
+  dir: ${ftp.server}/data
+  local-dir: file:${ftp.dir}
+  localWorkDirectory: ${ftp.server}/tmp
+  idxDirectory: ${ftp.server}/idx
+camel:
+  springboot:
+    main-run-controller: true
+spring:
+file:
+  csv-dir: D:\swy\yx\四川火警应急\data
